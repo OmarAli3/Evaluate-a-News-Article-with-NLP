@@ -1,0 +1,19 @@
+{
+  "name": "evaluate-a-news-article-with-nlp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OmarAli3/Evaluate-a-News-Article-with-NLP.git"
+  },
+  "author": "Omar Ali",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/OmarAli3/Evaluate-a-News-Article-with-NLP/issues"
+  },
+  "homepage": "https://github.com/OmarAli3/Evaluate-a-News-Article-with-NLP#readme"
+}
