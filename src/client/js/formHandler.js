@@ -1,10 +1,13 @@
+import { checkForURL } from './URLchecker'
 
-const handleSubmit = () =>{
+const handleSubmit = (event) =>{
+    event.preventDefault()
     // check what text was put into the form field
-    let formText = document.getElementById('name').value
-    if(checkForUrl(formText)){
+    let formText = document.getElementById('article-url').value
+    
+    if(checkForURL(formText)){
         console.log("::: Form Submitted :::")
-        postData('http://localhost:3000/sentiment',formText).then(updateUI)
+        postData('http://localhost:3000/sentiment',{url:formText}).then(updateUI)
     }
     else 
         console.log('invalid url')
@@ -19,28 +22,27 @@ const postData = async (url = '', data = {}) => {
             'Content-Type': 'application/json',
         },
         body: JSON.stringify(data),
-    });
+    })
     try {
-        const newData = await res.json();
-        return newData;
+        const newData = await res.json()
+        return newData
     }
     catch (error) {
-        console.log('Error', error);
+        console.log('Error', error)
     }
 }
 
 //Update UI with the retrieved data 
-export const updateUI = async () => {
-    const request = await fetch('/all');
+const updateUI = async (data) => {
     try {
-        const allData = await request.json();
-        console.log(allData);
-        document.querySelector('#sentence_count').innerHTML = allData.sentence_count;
-        document.querySelector('#score_tag').innerHTML = allData.score_tag;
-        document.querySelector('#agreement').innerHTML = allData.agreement;
-        document.querySelector('#subjectivity').innerHTML = allData.subjectivity;
-        document.querySelector('#confidence').innerHTML = allData.confidence;
-        document.querySelector('#irony').innerHTML = allData.irony;
+        console.log(data);
+        document.querySelector('#model').innerHTML = `model = ${data.model}`
+        document.querySelector('#score_tag').innerHTML = `score_tag = ${data.score_tag}`
+        document.querySelector('#agreement').innerHTML = `agreement = ${data.agreement}`
+        document.querySelector('#subjectivity').innerHTML = `subjectivity = ${data.subjectivity}`
+        document.querySelector('#confidence').innerHTML = `confidence = ${data.confidence}`
+        document.querySelector('#irony').innerHTML = `irony = ${data.irony}`
+        document.querySelector('#sentence_count').innerHTML = `sentence_count = ${data.sentence_count}`
         
     } catch (error) {
         console.log("error", error);
