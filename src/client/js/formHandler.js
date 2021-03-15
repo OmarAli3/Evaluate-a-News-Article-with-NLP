@@ -3,8 +3,9 @@ import { checkForURL } from './URLchecker'
 const handleSubmit = async (event) =>{
     event.preventDefault()
     // check what text was put into the form field
+    let formText = ''
     try{
-        let formText = document.getElementById('article-url').value
+        formText = document.getElementById('article-url').value
     }
     catch(error){
         console.log(error)
