@@ -1,47 +1,58 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-    <head>
-        <meta charset="utf-8">
-        <title>Test</title>
-    </head>
 
-    <body>
+<head>
+  <meta charset="utf-8">
+  <title>Test</title>
+</head>
 
-        <header>
-            <div class="">
-                Logo
-            </div>
-            <div class="">
-                navigation
-            </div>
-        </header>
+<body>
 
-        <main>
-            <div class="container">
-              <section>
-                <form id="form">
-                  <label for="article-url">URL</label>
-                  <input id="article-url" type="text" name="input" value="" placeholder="Enter Article URL here to discover its sentiment." />
-                  <button type="submit" id="btn-submit"> Submit </button>
-                </form>
-              </section>
-      
-              <section>
-                <strong>Form Results:</strong>
-                <div id="model"></div>
-                <div id="score_tag"></div>
-                <div id="agreement"></div>
-                <div id="subjectivity"></div>
-                <div id="confidence"></div>
-                <div id="irony"></div>
-                <div id="sentence_count"></div>
-              </section>
-            </div>
-          </main>
+  <header>
+    <div class="">
+      Logo
+    </div>
+    <div class="">
+      navigation
+    </div>
+  </header>
 
-        <footer>
-            <p>This is a footer</p>
-        </footer>
+  <main>
+    <div class="container">
+      <section>
+        <form id="form">
+          <label for="article-url">URL</label>
+          <input id="article-url" type="text" name="input" value=""
+            placeholder="Enter Article URL here to discover its sentiment." />
+          <button type="submit" id="btn-submit"> Submit </button>
+        </form>
+      </section>
 
-    </body>
+      <section>
+        <strong>Form Results:</strong>
+        <div id="model"></div>
+        <div id="score_tag"></div>
+        <div id="agreement"></div>
+        <div id="subjectivity"></div>
+        <div id="confidence"></div>
+        <div id="irony"></div>
+        <div id="sentence_count"></div>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <p>This is a footer</p>
+  </footer>
+  <script>
+    // Check that service workers are supported
+    if ('serviceWorker' in navigator) {
+      // Use the window load event to keep the page load performant
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/service-worker.js');
+      });
+    }
+  </script>
+</body>
+
 </html>

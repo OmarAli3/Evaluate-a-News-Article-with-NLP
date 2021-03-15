@@ -1,9 +1,7 @@
-const path = require('path')
 const { merge } = require('webpack-merge') 
-const webpack = require('webpack')
-const HtmlWebPackPlugin = require("html-webpack-plugin")
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const common = require('./webpack.common.js')
+const workboxPlugin = require("workbox-webpack-plugin")
 
 module.exports = merge(common,{
     mode: 'development',
@@ -18,6 +16,7 @@ module.exports = merge(common,{
             // Automatically remove all unused webpack assets on rebuild
             cleanStaleWebpackAssets: true,
             protectWebpackAssets: false
-        })
+        }),
+        new workboxPlugin.GenerateSW()
     ]
 })
