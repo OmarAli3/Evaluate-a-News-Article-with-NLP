@@ -7,4 +7,4 @@ const checkForURL = (inputURL) => {
   return isValidUrl;
 };
 
-export { checkForURL };
+export { checkForURL }

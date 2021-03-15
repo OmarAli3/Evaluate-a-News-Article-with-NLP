@@ -10,3 +10,5 @@ window.addEventListener('DOMContentLoaded',()=>{
     const submitButton = document.querySelector('#btn-submit')
     submitButton.addEventListener('click',handleSubmit)
 })
+
+export { handleSubmit }
