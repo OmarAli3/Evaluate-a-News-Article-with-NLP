@@ -9,3 +9,4 @@
  - api calling
  - environment variables injection
  - service workers  
+ - unit testing with jest
